@@ -1,0 +1,293 @@
+.home-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(30, 58, 138, 0.35) 0%, transparent 45%),
+    linear-gradient(135deg, #064e3b 0%, #14532d 35%, #166534 65%, #1e3a8a 100%);
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.detail-view-container {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .detail-view-container {
+    padding: 20px;
+  }
+}
+
+.home-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 48px,
+      rgba(255, 255, 255, 0.04) 48px,
+      rgba(255, 255, 255, 0.04) 49px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 48px,
+      rgba(255, 255, 255, 0.04) 48px,
+      rgba(255, 255, 255, 0.04) 49px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.worldcups-section {
+  position: relative;
+  z-index: 1;
+  padding: 80px 32px;
+  color: #fff;
+}
+
+.worldcups-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.worldcups-header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.worldcups-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 28px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 215, 0, 0.45);
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.worldcups-title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(180deg, #fff 0%, #facc15 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.worldcups-subtitle {
+  font-size: clamp(16px, 2.5vw, 20px);
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.worldcups-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  padding: 32px;
+  text-align: center;
+  color: #fff;
+  font-size: clamp(16px, 2.5vw, 20px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.worldcups-status-error {
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.45);
+  background: rgba(220, 38, 38, 0.15);
+}
+
+.worldcups-retry-button {
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #064e3b;
+  background: #facc15;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.worldcups-retry-button:hover {
+  transform: translateY(-2px);
+  background: #fde047;
+}
+
+.worldcups-retry-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.worldcups-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.worldcup-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 280px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.worldcup-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 215, 0, 0.55);
+}
+
+.worldcup-card:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}
+
+.worldcup-card-image {
+  height: 100%;
+  min-height: 280px;
+  background: linear-gradient(135deg, #065f46 0%, #1e3a8a 100%);
+}
+
+.worldcup-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.worldcup-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 24px;
+  gap: 14px;
+}
+
+.worldcup-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0 20px;
+}
+
+.worldcup-card-year {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  color: #facc15;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  line-height: 1;
+}
+
+.worldcup-card-winner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.worldcup-card-flag {
+  width: 28px;
+  height: 20px;
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.worldcup-card-upcoming {
+  color: #86efac;
+  font-weight: 700;
+}
+
+.worldcup-card-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.worldcup-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.worldcup-card-meta-item {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.worldcup-card-meta-item strong {
+  color: #facc15;
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .worldcups-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .worldcups-section {
+    padding: 56px 20px;
+  }
+
+  .worldcups-grid {
+    gap: 20px;
+  }
+
+  .worldcup-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .worldcup-card-image {
+    min-height: 180px;
+    height: 180px;
+  }
+
+  .worldcup-card-content {
+    padding: 20px;
+  }
+}

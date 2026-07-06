@@ -1,0 +1,544 @@
+.world-cup-detail {
+  min-height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.wcd-hero {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wcd-back-button {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.45);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.wcd-back-button:hover {
+  background: rgba(255, 215, 0, 0.18);
+  border-color: rgba(255, 215, 0, 0.75);
+  transform: translateY(-2px);
+}
+
+.wcd-back-button:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}
+
+.wcd-hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "back info"
+    "image info";
+  gap: 16px 40px;
+  align-items: start;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wcd-hero-content .wcd-back-button {
+  grid-area: back;
+  align-self: start;
+  justify-self: start;
+}
+
+.wcd-image-wrapper {
+  grid-area: image;
+}
+
+.wcd-hero-info {
+  grid-area: info;
+  align-self: center;
+}
+
+.wcd-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #065f46 0%, #1e3a8a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.wcd-winner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.wcd-image-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(135deg, #065f46 0%, #1e3a8a 100%);
+}
+
+.wcd-hero-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.wcd-title {
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(180deg, #fff 0%, #facc15 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+
+.wcd-winner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.45);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: default;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.wcd-winner-badge--clickable {
+  cursor: pointer;
+}
+
+.wcd-winner-badge--clickable:hover {
+  background: rgba(255, 215, 0, 0.18);
+  border-color: rgba(255, 215, 0, 0.75);
+  transform: translateY(-2px);
+}
+
+.wcd-winner-flag {
+  width: 36px;
+  height: 26px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.wcd-winner-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: 999px;
+  color: #facc15;
+}
+
+.wcd-upcoming-label {
+  display: inline-flex;
+  padding: 10px 18px;
+  background: rgba(134, 239, 172, 0.2);
+  border: 1px solid rgba(134, 239, 172, 0.45);
+  border-radius: 999px;
+  color: #86efac;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.wcd-body {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.wcd-section {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 28px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+}
+
+.wcd-section-title {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  margin: 0 0 20px;
+  color: #facc15;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.wcd-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+.wcd-info-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 16px;
+}
+
+.wcd-info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.wcd-info-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.wcd-info-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+.wcd-info-value--host,
+.wcd-info-value--winner {
+  color: #facc15;
+}
+
+.wcd-info-flag {
+  width: 24px;
+  height: 18px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.wcd-lists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.wcd-list-card {
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.wcd-list-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 14px;
+  color: #facc15;
+}
+
+.wcd-list-icon {
+  font-size: 18px;
+}
+
+.wcd-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wcd-list-item {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  padding-left: 14px;
+  position: relative;
+  text-align: left;
+}
+
+.wcd-list-item::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #facc15;
+  font-weight: 700;
+}
+
+.wcd-podium-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.wcd-podium-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.wcd-podium-card--champion {
+  background: rgba(255, 215, 0, 0.12);
+  border-color: rgba(255, 215, 0, 0.45);
+}
+
+.wcd-podium-card--runner-up {
+  background: rgba(192, 192, 192, 0.12);
+  border-color: rgba(192, 192, 192, 0.45);
+}
+
+.wcd-podium-card--third {
+  background: rgba(205, 127, 50, 0.12);
+  border-color: rgba(205, 127, 50, 0.45);
+}
+
+.wcd-podium-position {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wcd-podium-flag {
+  width: 48px;
+  height: 36px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.wcd-podium-country {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.wcd-participants-count {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 10px;
+}
+
+.wcd-participants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.wcd-participant {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.wcd-participant:hover {
+  background: rgba(255, 215, 0, 0.12);
+  border-color: rgba(255, 215, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+.wcd-participant:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}
+
+.wcd-participant--winner {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.55);
+}
+
+.wcd-participant--winner:hover {
+  background: rgba(255, 215, 0, 0.25);
+  border-color: rgba(255, 215, 0, 0.8);
+}
+
+.wcd-participant:disabled {
+  cursor: default;
+}
+
+.wcd-participant:disabled:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: none;
+}
+
+.wcd-participant-flag {
+  width: 24px;
+  height: 18px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.wcd-participant-fallback {
+  width: 24px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.wcd-participant-name {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wcd-participant-crown {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.wcd-empty,
+.wcd-empty-list {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .wcd-hero-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "back"
+      "image"
+      "info";
+    gap: 16px;
+  }
+
+  .wcd-hero-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .wcd-body {
+    padding: 0 20px 64px;
+  }
+
+  .wcd-section {
+    padding: 22px;
+  }
+
+  .wcd-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .wcd-hero {
+    padding: 20px;
+  }
+
+  .wcd-image-wrapper {
+    aspect-ratio: 4 / 3;
+  }
+
+  .wcd-title {
+    font-size: 32px;
+  }
+
+  .wcd-winner-badge {
+    padding: 10px 16px;
+    font-size: 16px;
+  }
+
+  .wcd-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wcd-lists-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wcd-podium-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wcd-participants-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}

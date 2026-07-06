@@ -1,0 +1,264 @@
+.team-panel {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 100%;
+  min-height: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 1px solid var(--border);
+  background: var(--bg);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.team-panel-header {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.team-panel-header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: var(--text-h);
+}
+
+.draw-button {
+  font-size: 15px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.draw-button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.draw-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.country-info {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: var(--accent-bg);
+  border-radius: 6px;
+}
+
+.country-label {
+  color: var(--text);
+}
+
+.country-name {
+  color: var(--text-h);
+}
+
+.player-list-section {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.player-list-section h3 {
+  flex: 0 0 auto;
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: var(--text-h);
+}
+
+.draft-notice {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-h);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 0 0 10px;
+}
+
+.draft-notice p {
+  margin: 0;
+}
+
+.cancel-draft-button {
+  align-self: flex-start;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.cancel-draft-button:hover {
+  background: var(--accent-bg);
+}
+
+.player-list-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--social-bg);
+}
+
+.player-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.player-item {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s, background-color 0.2s, opacity 0.2s;
+}
+
+.player-item:not(.assigned):not(.locked):not(.selected):hover {
+  border-color: var(--accent-border);
+}
+
+.player-item.selected {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+.player-item.assigned {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  opacity: 0.75;
+}
+
+.player-item.locked {
+  opacity: 0.35;
+  filter: grayscale(0.6);
+}
+
+.locked-badge {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-top: 4px;
+  color: #9ca3af;
+  background: rgba(156, 163, 175, 0.15);
+}
+
+.player-item.no-slot {
+  opacity: 0.6;
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.player-button {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.player-button:disabled {
+  cursor: not-allowed;
+}
+
+.player-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-h);
+}
+
+.player-meta {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 135%;
+}
+
+.selected-badge,
+.assigned-badge {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-top: 4px;
+}
+
+.selected-badge {
+  color: #fff;
+  background: var(--accent);
+}
+
+.assigned-badge {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.no-slot-badge {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-top: 4px;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.empty-message {
+  color: var(--text);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+@media (max-width: 1024px) {
+  .team-panel {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    flex: 1 1 auto;
+    border-right: none;
+    border-top: 1px solid var(--border);
+    padding: 16px;
+  }
+
+  .player-list-section {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .player-list-scroll {
+    max-height: none;
+  }
+}

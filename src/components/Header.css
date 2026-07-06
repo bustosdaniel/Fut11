@@ -1,0 +1,114 @@
+.top-header {
+  flex: 0 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 24px;
+  background: linear-gradient(90deg, #0f172a 0%, #064e3b 50%, #14532d 100%);
+  border-bottom: 2px solid rgba(250, 204, 21, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  margin-left: -10px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.header-brand:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.header-brand:active {
+  transform: scale(0.98);
+}
+
+.header-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-badge {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-shadow:
+    0 3px 0 rgba(0, 0, 0, 0.25),
+    0 0 24px rgba(255, 215, 0, 0.35);
+  background: linear-gradient(180deg, #fff 0%, #facc15 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-play-button {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 2px solid rgba(250, 204, 21, 0.75);
+  color: #064e3b;
+  background: linear-gradient(180deg, #facc15 0%, #eab308 100%);
+  cursor: pointer;
+  box-shadow: 0 4px 0 #a16207, 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+}
+
+.header-play-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 0 #a16207, 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.header-play-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #a16207, 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 640px) {
+  .top-header {
+    height: 56px;
+    padding: 0 16px;
+  }
+
+  .header-title {
+    font-size: 22px;
+  }
+
+  .header-badge {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .header-play-button {
+    font-size: 15px;
+    padding: 8px 20px;
+  }
+}

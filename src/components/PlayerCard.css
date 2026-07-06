@@ -1,0 +1,300 @@
+.player-card {
+  position: relative;
+  width: 300px;
+  min-height: 475px;
+  border-radius: 18px;
+  padding: 16px 16px 28px 16px;
+  background: linear-gradient(145deg, #e6c66c 0%, #d4af37 50%, #b8860b 100%);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.player-card--compact {
+  width: 190px;
+  min-height: 260px;
+  padding: 14px 10px 12px 10px;
+  border-radius: 12px;
+}
+
+.player-card-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 45%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Header: posiciones + club */
+.player-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  margin-bottom: 8px;
+}
+
+.player-card__positions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.player-card__positions--bottom {
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 6px;
+}
+
+.player-card__position-circle {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  color: #f9d76c;
+  font-size: 11px;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.player-card--compact .player-card__position-circle {
+  width: 22px;
+  height: 22px;
+  font-size: 8px;
+}
+
+.player-card__club {
+  max-width: 55%;
+  font-size: 10px;
+  font-weight: 800;
+  color: #2a1d00;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.player-card__club--centered {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  font-size: 11px;
+  margin-bottom: 6px;
+  z-index: 1;
+}
+
+.player-card--compact .player-card__club {
+  font-size: 10px;
+  max-width: 100%;
+}
+
+/* Identidad: foto + nombre */
+.player-card__identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 12px;
+  z-index: 1;
+}
+
+.player-card--compact .player-card__identity {
+  margin: 0 0 6px;
+}
+
+.player-card__image-area {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 2px;
+  min-height: 175px;
+}
+
+.player-card--compact .player-card__image-area {
+  min-height: 85px;
+  margin: 0 0 1px;
+}
+
+.player-card__image {
+  max-width: 100%;
+  max-height: 185px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+}
+
+.player-card--compact .player-card__image {
+  max-height: 90px;
+}
+
+.player-card__placeholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  border: 3px solid #f9d76c;
+}
+
+.player-card__placeholder span {
+  font-size: 48px;
+  font-weight: 900;
+  color: #f9d76c;
+}
+
+.player-card--compact .player-card__placeholder {
+  width: 60px;
+  height: 60px;
+  border-width: 2px;
+}
+
+.player-card--compact .player-card__placeholder span {
+  font-size: 22px;
+}
+
+.player-card__name {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 900;
+  color: #2a1d00;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.player-card--compact .player-card__name {
+  font-size: 12px;
+}
+
+/* Stats modo grande */
+.player-card__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.player-card__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 4px;
+  background: transparent;
+  color: #2a1d00;
+  border: none;
+}
+
+.player-card__stat-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  opacity: 0.75;
+  margin-bottom: 1px;
+}
+
+.player-card__stat-value {
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.player-card__stat--wide {
+  grid-column: span 2;
+}
+
+/* Stats modo compacto */
+.player-card__stats-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  z-index: 1;
+}
+
+.player-card__stats-row span {
+  font-size: 9px;
+  font-weight: 700;
+  color: #2a1d00;
+  background: transparent;
+  padding: 4px 7px;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Banderas */
+.player-card__club,
+.player-card__stat-value,
+.player-card__stats-row span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.player-card__club-flag {
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.player-card__country-flag {
+  width: 16px;
+  height: 12px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.player-card--compact .player-card__club-flag {
+  width: 14px;
+  height: 10px;
+}
+
+.player-card--compact .player-card__country-flag {
+  width: 12px;
+  height: 9px;
+}
+
+@media (max-width: 480px) {
+  .player-card {
+    width: 90vw;
+    min-height: auto;
+  }
+
+  .player-card__name {
+    font-size: 18px;
+  }
+
+  .player-card__image {
+    max-height: 170px;
+  }
+
+  .player-card--compact {
+    width: 140px;
+    min-height: 220px;
+    padding: 8px;
+  }
+}
